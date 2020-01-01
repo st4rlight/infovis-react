@@ -1,0 +1,29 @@
+.d3-bottom{
+    width:100%;
+    z-index: 99;
+    position: fixed;
+    bottom: 0;
+}
+
+.axis line, .axis path{
+    fill:none;
+    stroke:#000;
+    shape-rendering: crispEdges;
+    display: none
+}
+/* .axis text{font-family:sans-serif;font-size:4px} */
+.MyRect{
+    fill:#4682b4;
+}
+.MyText{
+    fill: #fff;
+    text-anchor: middle;
+    font-size: 0.6rem;
+    /* display: none; */
+}
+/* .tooltip{font-size:10px;width:100px;height:auto;position:absolute;text-align:center;border-style:solid;border-width:1px;background-color:#fff;border-radius:5px;z-index:100} */
+/* #myCenter{color:#fff;font-size:12px;width:300px;height:100px;display:block;position:absolute;top:15%;left:50%;margin-left:-150px;margin-top:-50px} */
+.rect-active{
+    fill: #92c9ff;
+    opacity: 1.0;
+}

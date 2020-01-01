@@ -1,0 +1,33 @@
+#content-list{
+    width: 100%;
+    height: 100%;
+}
+
+.rows{
+    /* height: auto !important; */
+}
+
+.row-item{
+    height: auto !important;
+    transition: none !important;
+}
+
+.ceil:nth-child(1){
+    width: 15% !important;
+}
+.ceil:nth-child(2){
+    width: 65% !important;
+}
+.ceil:nth-child(3){
+    width: 20% !important;
+}
+
+.row-item:hover{
+    line-height: 25px !important;
+    transition: none !important;
+}
+
+
+.item-content:hover{
+    white-space: normal !important;
+}

@@ -1,0 +1,88 @@
+.analyse-wrapper{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background: #1a232c;
+}
+.bottom-wrapper > div, .top-left > div, .top-center > div, .top-right > div{
+    border: 1px solid rgba(153, 153, 153, 0.8);
+    /*box-sizing: border-box;*/
+    border-spacing: 0;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.row-item{
+    border-radius: 10px;
+}
+
+.top-wrapper{
+    height: 65%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+}
+.bottom-wrapper{
+    height: 35%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+}
+
+.bottom-1th{
+    height: 100%;
+    width: 25%;
+    box-sizing: border-box;
+}
+.bottom-2th{
+    height: 100%;
+    width: 22.5%;
+    box-sizing: border-box;
+}
+.bottom-3th{
+    height: 100%;
+    width: 22.5%;
+    box-sizing: border-box;
+}
+.bottom-4th{
+    height: 100%;
+    width: 30%;
+    box-sizing: border-box;
+}
+
+
+
+.top-left{
+    width: 20%;
+    height: 100%;
+}
+.top-center{
+    width: 50%;
+    height: 100%;
+}
+.top-right{
+    width: 30%;
+    height: 100%;
+}
+
+.word-cloud{
+    height: 50%;
+    width: 100%;
+}
+.locations{
+    height: 50%;
+    width: 100%;
+}
+
+.calendar{
+    height: 40%;
+    width: 100%;
+}
+.periods{
+    height: 60%;
+    width: 100%;
+}

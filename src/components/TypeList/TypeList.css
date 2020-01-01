@@ -1,0 +1,29 @@
+.typelist-ul{
+    float: left;
+    z-index: 99;
+    position: fixed;
+    height: 100%;
+    top: 15%;
+    left: 2%;
+    margin: 0;
+}
+.typelist-li{
+    margin: 12px 0;
+    font-size: 0.85rem;
+    cursor: pointer;
+    opacity: 0.3;
+    font-weight: bold;
+}
+.typelist-li div{
+    padding: 5px;
+    display: inline;
+    box-sizing: border-box;
+}
+
+.checked{
+    opacity: 1.0;
+}
+
+.typelist-li div:hover{
+    border: 1px dashed white;
+}
