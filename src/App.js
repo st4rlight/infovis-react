@@ -8,6 +8,7 @@ import D3 from './components/D3/D3';
 import {intToTimeSpan} from './utils/utils';
 import ChooseDate from './components/ChooseDate/ChooseDate';
 import Analyse from './components/Analyse/Analyse';
+import { Spin } from 'antd';
 
 
 class App extends React.Component {
@@ -36,9 +37,12 @@ class App extends React.Component {
         analyseTime: {
             month: 3,
             date: 1
-        }
+        },
+        readFileFlag: false,
+        readHalfFlag: false,
+        readFileMsgFlag: false,
+        readCalendarFlag: false
     }
-
 
     filteMsgs = () => {
         let tempArr = [];
@@ -99,12 +103,21 @@ class App extends React.Component {
             analyseTime
         })
     }
+    changeReadCalendarFlag = (readCalendarFlag) => {
+        this.setState({
+            readCalendarFlag
+        })
+    }
     cntTimeText = () => {
         return `2017年${this.state.month}月${this.state.date}日 ${intToTimeSpan(this.state.half)}`;
     }
     
     // flag代表是否重新计算halfTotal
     readFile = async (flag = true) => {
+        this.setState({
+            readFileFlag: true,
+            readFileMsgFlag: true
+        })
         axios.get(`data/month${this.state.month}/day${this.state.date}/msg${this.state.half}.txt`)
         .then((res) => {
             let typedMsgs = [];
@@ -130,10 +143,12 @@ class App extends React.Component {
                 this.refs.map.state.pointSimplifierIns.setData(tempArr);
                 //监听事件
                 this.refs.map.state.pointSimplifierIns.on('pointClick pointMouseover pointMouseout', function (e, record) {});
+                this.setState({
+                    readFileMsgFlag: false
+                })
             });
 
-        })
-        .catch((err) => {
+        }).catch((err) => {
             console.log(err);
         });
 
@@ -145,14 +160,12 @@ class App extends React.Component {
                 return a.value < b.value;
             })
             this.setState({
-                types
+                types,
+                readFileFlag: false
             });
-        })
-        .catch((err) => {
+        }).catch((err) => {
             console.log(err);
         })
-    
-
 
         // 判断是否读取half
         if(flag)
@@ -162,6 +175,9 @@ class App extends React.Component {
 
     readHalf = async () => {
         let halfTotal = [];
+        this.setState({
+            readHalfFlag: true
+        })
         for(let i = 0; i < 48; i++){
             let cnt = 0;
             let res = await axios.get(`data/month${this.state.month}/day${this.state.date}/${i}.txt`);
@@ -174,7 +190,8 @@ class App extends React.Component {
         }
 
         this.setState({
-            halfTotal
+            halfTotal,
+            readHalfFlag: false
         });
     }
 
@@ -187,6 +204,17 @@ class App extends React.Component {
                     showMap={this.state.showMap}
                     analyseTime={this.state.analyseTime}
                 />
+                {
+                    this.state.readFileFlag || this.state.readHalfFlag || this.state.readFileMsgFlag || this.state.readCalendarFlag
+                    ?
+                    <div className='spin-container'>
+                        <div className='my-spin'>
+                            <Spin size="large" />
+                        </div>
+                    </div>
+                    :
+                    null
+                }
                 <div className={`map-container ${this.state.showMap ? null : 'v-show'}`}>
                     <TypeList
                         types={this.state.types}
@@ -215,6 +243,7 @@ class App extends React.Component {
                 <div className={`analyse-container ${this.state.showMap ? 'v-show' : null}`}>
                     <Analyse
                         changeAnalyseTime={this.changeAnalyseTime}
+                        changeReadCalendarFlag={this.changeReadCalendarFlag}
                     />
                 </div>
             </div>

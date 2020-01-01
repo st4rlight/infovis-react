@@ -21,12 +21,14 @@ export default class Analyse extends Component{
         }
     }
     changeTime = (analyseTime) => {
+        this.props.changeReadCalendarFlag(true)
         this.setState({
             time: analyseTime
         })
         this.props.changeAnalyseTime({
             ...analyseTime
         })
+        this.props.changeReadCalendarFlag(false)
     }
 
     render(){

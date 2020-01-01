@@ -8,7 +8,7 @@ export default class Buttons extends Component {
 
   render() {
     let { month, date } = this.props.analyseTime
-    let str = `2017年${month < 10 ? '0' + month : month}月${date < 10 ? '0' + date : date}日`
+    let str = `　2017 年 ${month < 10 ? '0' + month : month} 月 ${date < 10 ? '0' + date : date} 日　`
 
     return (
         <div className="buttons">
@@ -28,11 +28,11 @@ export default class Buttons extends Component {
                         </button>
                     </div>
                         <div className={`time ${!this.props.showMap ? 'analyse-time' : ''}`}>
-                            当前时间：
+
                             {
                                 this.props.showMap
                                 ?
-                                this.props.currentTime
+                                '当前时间: ' + this.props.currentTime
                                 :
                                 str
                             }

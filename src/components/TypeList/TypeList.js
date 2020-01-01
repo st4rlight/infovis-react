@@ -4,16 +4,19 @@ import {colors} from '../../utils/utils';
 import './TypeList.css';
 
 export default class TypeList extends Component {
-
     changeChecked(typeName){
         this.props.changeChecked(typeName);
     }
 
     render() {
+        let { types } = this.props
+        types.sort((a, b) => {
+            return b.value - a.value
+        })
         return (
             <ul className="typelist-ul">
                 {
-                    this.props.types.map((item, idx) => {
+                    types.map((item, idx) => {
                         return (
                             <li key={idx}
                                 className={`typelist-li ${this.props.checked[item.type] ? 'checked' : null}`}

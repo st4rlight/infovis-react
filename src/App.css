@@ -22,3 +22,20 @@
 .v-show{
     display: none;
 }
+.spin-container{
+    float: left;
+    z-index: 1000;
+    position: relative;
+    top: 50%;
+    left: 50%;
+}
+.my-spin{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: -50px;
+    top: -100PX;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

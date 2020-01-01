@@ -18,10 +18,12 @@
     margin-top: 10px;
     color: white;
     font-size: 0.75rem;
+    line-height: 26px;
 }
 .analyse-time{
-    color: #ccc;
-    font-size: 0.85rem;
+    color: #ddd;
+    font-size: 1.0rem;
+    background: #333;
 }
 
 .button-space{
